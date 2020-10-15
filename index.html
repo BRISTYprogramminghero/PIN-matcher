@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pin Generator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="pin-generator half-width">
+                        <input value="" class="form-control" type="text"    placeholder="click on the generate pin Button"  id="pinInput">
+                    <button class="generate-btn" id="generatePin">Generate Pin</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-section half-width">
+                    <input class="form-control" type="text" placeholder="pin" id="calculateDisplay" value="" >
+                    <div class="numbers">
+                        <div class="calc-body">
+                            <div class="calc-button-row">
+                              <div class="button" id="calculate7" >7</div>
+                              <div id="calculate8" class="button">8</div>
+                              <div id="calculate9" class="button" >9</div>
+                            </div>
+                            <div class="calc-button-row">
+                              <div id="calculate4" class="button">4</div>
+                              <div id="calculate5" class="button">5</div>
+                              <div id="calculate6" class="button">6</div>
+                            </div>
+                            <div class="calc-button-row">
+                              <div id="calculate1" class="button">1</div>
+                              <div id="calculate2" class="button">2</div>
+                              <div id="calculate3" class="button">3</div>
+                            </div>
+                            <div class="calc-button-row">
+                                <div class="button" id="backButton"><</div>
+                                <div class="button" id="calculate0">0</div>
+                                <div class="button" id="clearBtn" >C</div>
+                            </div>
+                            <div>
+                                <button type="submit" class="submit-btn" id="submit">Submit</button>
+                                <p class="action-left">3 try left</p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+               
+        <div class="notify-section" id="matched">
+            <p class="notify" placeholder="">❌ Pin Didn't Match, Please try again</p>
+            <p class="notify">✅ Pin Matched... Secret door is opening for you</p>
+        </div>
+    </div>
+
+
+
+
+    <script>
+    //     function getPassword(){
+    //         var chars = " 1000 9999"
+    //         var passwordLength = 4;
+    //         var password = "";
+
+
+    //         for(var i = 0; i<passwordLength; i++ ){
+    //             var randomNumber = Math.floor(Math.random() * chars.length);
+    //             password += chars.substring(randomNumber,randomNumber + 1);
+    //         }
+    //         document.getElementById('password').value= password
+    //     }
+    // //    function calculator (){
+    // //        var one = document.getElementsByClassName('calculator');
+    // //        one.addEventListener('click',calculator)
+    // //       document.getElementById('pin').value += one.innerHtml;
+    // //        console.log('click')
+            
+    // //    }
+    // var seven = document.getElementById('calculate7');
+    // one.addEventListener('click',function(){
+    //     document.getElementById('pin').value += seven.innerHTML
+// })
+
+// generating Pin 
+var pinGenerate = document.getElementById('generatePin');
+pinGenerate.addEventListener('click',function(){
+    var randomNumber = Math.random() * 9999;
+    var output = Math.round(randomNumber);
+    var displayPin = document.getElementById('pinInput').value = output;
+})
+
+// calculator
+var seven = document.getElementById('calculate7');
+seven.addEventListener('click',function(){
+    document.getElementById('calculateDisplay').value += seven.innerHTML;
+})
+
+var eight = document.getElementById('calculate8');
+eight.addEventListener('click',function(){
+    document.getElementById('calculateDisplay').value += eight.innerHTML;
+})  
+  
+var nine = document.getElementById('calculate9');
+nine.addEventListener('click',function(){
+    document.getElementById('calculateDisplay').value += nine.innerHTML;
+})
+
+var four = document.getElementById('calculate4');
+four.addEventListener('click',function(){
+    document.getElementById('calculateDisplay').value += four.innerHTML;
+})
+
+var five = document.getElementById('calculate5');
+five.addEventListener('click',function(){
+    document.getElementById('calculateDisplay').value += five.innerHTML;
+})
+
+var six = document.getElementById('calculate6');
+six.addEventListener('click',function(){
+    document.getElementById('calculateDisplay').value += six.innerHTML;
+})
+
+var one = document.getElementById('calculate1');
+one.addEventListener('click',function(){
+    document.getElementById('calculateDisplay').value += one.innerHTML;
+})
+
+var two = document.getElementById('calculate2');
+two.addEventListener('click',function(){
+    document.getElementById('calculateDisplay').value += two.innerHTML;
+})
+
+var three = document.getElementById('calculate3');
+three.addEventListener('click',function(){
+    document.getElementById('calculateDisplay').value += three.innerHTML;
+})
+
+var zero = document.getElementById('calculate0');
+zero.addEventListener('click',function(){
+    document.getElementById('calculateDisplay').value += zero.innerHTML;
+})
+ 
+var clearButton = document.getElementById('clearBtn');
+clearButton.addEventListener('click',function(){
+    document.getElementById('calculateDisplay').value = null;
+})
+
+var submitButton = document.getElementById('submit');
+submitButton.addEventListener('click',function(){
+    if(document.getElementById('pinInput').value == document.getElementById('calculateDisplay').value){
+        const pin = document.getElementById('matched');
+        const createParagraph = document.createElement('p');
+        createParagraph.innerHTML = '✅ Pin Matched... Secret door is opening for you'
+        pin.appendChild(createParagraph);
+    }
+    else{
+        const pin1 = document.getElementById('matched');
+        const createParagraph1 = document.createElement('p');
+        createParagraph1.innerHTML = '✅ Pin Matched... Secret door is opening for you'
+        pin1.appendChild(createParagraph1);
+    }
+})
+ 
+ document.getElementById('backButton').addEventListener('click',function(){
+     var exp = document.getElementById('calculateDisplay').value;
+     document.getElementById('calculateDisplay').value = exp. substring(0,exp.length-1);
+ })
+
+
+    </script>
+</body>
+</html>
