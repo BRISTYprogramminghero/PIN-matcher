@@ -50,9 +50,8 @@
             </div>
         </div>
                
-        <div class="notify-section" id="matched">
-            <p class="notify" placeholder="">❌ Pin Didn't Match, Please try again</p>
-            <p class="notify">✅ Pin Matched... Secret door is opening for you</p>
+        <div class="notify-section" id="matched" >
+            
         </div>
     </div>
 
@@ -159,7 +158,7 @@ submitButton.addEventListener('click',function(){
     else{
         const pin1 = document.getElementById('matched');
         const createParagraph1 = document.createElement('p');
-        createParagraph1.innerHTML = '✅ Pin Matched... Secret door is opening for you'
+        createParagraph1.innerHTML = '❌ Pin Did not Match, Please try again'
         pin1.appendChild(createParagraph1);
     }
 })
